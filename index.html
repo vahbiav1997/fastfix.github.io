@@ -212,43 +212,49 @@
         </div>
       </div>
       
-    <form action="https://formspree.io/f/mdaypkwy" method="POST">
-      <div class="contact-form">
-        <div class="form-msg" id="formMsg"></div>
-        <div class="form-row">
-          <div class="field">
-            <label for="fname">First Name *</label>
-            <input type="text" id="fname" placeholder="Rahul"/>
-          </div>
-          <div class="field">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="Sharma"/>
-          </div>
-        </div>
-        <div class="field">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" placeholder="+91 98765 XXXXX"/>
-        </div>
-        <div class="field">
-          <label for="device">Device Type *</label>
-          <select id="device">
-            <option value="">— Select your device —</option>
-            <option>iPhone</option>
-            <option>Android Phone</option>
-            <option>iPad / Tablet</option>
-            <option>Laptop (Windows)</option>
-            <option>MacBook</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="issue">Describe the Issue *</label>
-          <textarea id="issue" placeholder="e.g. Cracked screen on iPhone 13, touch not working…"></textarea>
-        </div>
-        <button class="btn btn-primary" style="width:100%;font-size:1rem;" onclick="submitForm()">Send Booking Request</button>
+<form action="https://formspree.io/f/mdaypkwy" method="POST">
+  <div class="contact-form">
+    <div class="form-row">
+      <div class="field">
+        <label>First Name *</label>
+        <input type="text" name="first_name" placeholder="Rahul" required>
+      </div>
+
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" name="last_name" placeholder="Sharma">
       </div>
     </div>
-    </form>
+
+    <div class="field">
+      <label>Phone Number *</label>
+      <input type="tel" name="phone" placeholder="+91 98765 XXXXX" required>
+    </div>
+
+    <div class="field">
+      <label>Device Type *</label>
+      <select name="device" required>
+        <option value="">— Select your device —</option>
+        <option>iPhone</option>
+        <option>Android Phone</option>
+        <option>iPad / Tablet</option>
+        <option>Laptop (Windows)</option>
+        <option>MacBook</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Describe the Issue *</label>
+      <textarea name="issue" required placeholder="e.g. Cracked screen on iPhone 13..."></textarea>
+    </div>
+    <!-- optional -->
+    <input type="hidden" name="_subject" value="New Repair Booking">
+    <button type="submit" class="btn btn-primary" style="width:100%;font-size:1rem;">
+      Send Booking Request
+    </button>
+  </div>
+</form>
   </div>
 </section>
 
