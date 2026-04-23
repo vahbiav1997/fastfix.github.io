@@ -42,3 +42,26 @@
     ['fname','lname','phone','issue'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('device').value = '';
   }
+
+document.getElementById("repairForm").addEventListener("submit", async function(e) {
+  e.preventDefault(); // stops redirect
+
+  const formData = new FormData(this);
+
+  const response = await fetch("https://formspree.io/f/mdaypkwy", {
+    method: "POST",
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  const msg = document.getElementById("formMsg");
+
+  if (response.ok) {
+    msg.innerHTML = "✅ Request sent successfully!";
+    this.reset();
+  } else {
+    msg.innerHTML = "❌ Something went wrong. Try again.";
+  }
+});
