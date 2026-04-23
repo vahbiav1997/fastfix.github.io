@@ -6,7 +6,7 @@
   <title>Repairio Electronics — Expert Repair Services</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -27,10 +27,10 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#services" onclick="closeMobileMenu()">Services</a>
-    <a href="#about"    onclick="closeMobileMenu()">About</a>
-    <a href="#faq"      onclick="closeMobileMenu()">FAQ</a>
-    <a href="#contact"  onclick="closeMobileMenu()">Book a Repair</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Book a Repair</a>
   </div>
 </nav>
 
@@ -138,7 +138,7 @@
       </div>
       <div class="about-img">
         <div class="big-icon">🔧</div>
-        <p>Serving Lucknow since 2018</p>
+        <p>Serving Lucknow since 2011</p>
       </div>
     </div>
   </div>
@@ -212,49 +212,44 @@
         </div>
       </div>
       
-<form id="repairForm">
-  <div class="contact-form">
-    <div class="form-row">
-      <div class="field">
-        <label>First Name *</label>
-        <input type="text" name="first_name" placeholder="Rahul" required>
-      </div>
-
-      <div class="field">
-        <label>Last Name</label>
-        <input type="text" name="last_name" placeholder="Sharma">
-      </div>
-    </div>
-
+<form id="repairForm" class="contact-form">
+  <div id="formMsg" class="form-msg"></div>
+  <div class="form-row">
     <div class="field">
-      <label>Phone Number *</label>
-      <input type="tel" name="phone" placeholder="+91 98765 XXXXX" required>
+      <label>First Name *</label>
+      <input type="text" name="first_name" placeholder="Rahul" required>
     </div>
-
     <div class="field">
-      <label>Device Type *</label>
-      <select name="device" required>
-        <option value="">— Select your device —</option>
-        <option>iPhone</option>
-        <option>Android Phone</option>
-        <option>iPad / Tablet</option>
-        <option>Laptop (Windows)</option>
-        <option>MacBook</option>
-        <option>Other</option>
-      </select>
+      <label>Last Name</label>
+      <input type="text" name="last_name" placeholder="Sharma">
     </div>
-
-    <div class="field">
-      <label>Describe the Issue *</label>
-      <textarea name="issue" required placeholder="e.g. Cracked screen on iPhone 13..."></textarea>
-    </div>
-    <!-- optional -->
-    <input type="hidden" name="_subject" value="New Repair Booking">
-    <button type="submit" class="btn btn-primary" style="width:100%;font-size:1rem;">
-      Send Booking Request
-    </button>
   </div>
+  <div class="field">
+    <label>Phone Number *</label>
+    <input type="tel" name="phone" placeholder="+91 98765 XXXXX" required>
+  </div>
+  <div class="field">
+    <label>Device Type *</label>
+    <select name="device" required>
+      <option value="">— Select your device —</option>
+      <option>iPhone</option>
+      <option>Android Phone</option>
+      <option>iPad / Tablet</option>
+      <option>Laptop (Windows)</option>
+      <option>MacBook</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Describe the Issue *</label>
+    <textarea name="issue" required placeholder="e.g. Cracked screen on iPhone 13..."></textarea>
+  </div>
+  <input type="hidden" name="_subject" value="New Repair Booking">
+  <button type="submit" class="btn btn-primary" style="width:100%;font-size:1rem;">
+    Send Booking Request
+  </button>
 </form>
+    </div>
   </div>
 </section>
 
