@@ -545,3 +545,28 @@ body {
   .hero-title { font-size: 22px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-control button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #2e7d32;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.qty-control span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
