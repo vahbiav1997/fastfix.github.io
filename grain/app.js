@@ -260,12 +260,23 @@ function renderProducts(list) {
             <span class="price">₹${p.price}</span>
             <span class="price-unit">/kg</span>
           </div>
-          <button
-            class="add-btn ${cart[p.id] ? "added" : ""}"
-            onclick="addToCart(${p.id})"
-            aria-label="Add ${p.name} to cart">
-            ${cart[p.id] ? cart[p.id] : "+"}
-          </button>
+         ${
+  cart[p.id]
+    ? `
+      <div class="qty-control">
+        <button onclick="decreaseFromCart(${p.id})">−</button>
+        <span>${cart[p.id]}</span>
+        <button onclick="addToCart(${p.id})">+</button>
+      </div>
+    `
+    : `
+      <button
+        class="add-btn"
+        onclick="addToCart(${p.id})">
+        +
+      </button>
+    `
+}
         </div>
       </div>
     </div>`
@@ -276,11 +287,21 @@ function renderProducts(list) {
 // ─── Cart ────────────────────────────────────────────────
 function addToCart(id) {
   cart[id] = (cart[id] || 0) + 1;
-  const btn = document.querySelector(`#card-${id} .add-btn`);
-  if (btn) {
-    btn.classList.add("added");
-    btn.textContent = cart[id];
+
+  filterProducts(); // refresh card UI
+  updateCartBar();
+}
+
+function decreaseFromCart(id) {
+  if (!cart[id]) return;
+
+  cart[id]--;
+
+  if (cart[id] <= 0) {
+    delete cart[id];
   }
+
+  filterProducts(); // re-render cards
   updateCartBar();
 }
 
