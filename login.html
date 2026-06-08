@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Login</h2>
+
+<input
+  id="email"
+  placeholder="Email"
+/>
+
+<button onclick="sendOtp()">
+Send OTP
+</button>
+
+<br><br>
+
+<input
+  id="otp"
+  placeholder="OTP"
+/>
+
+<button onclick="verifyOtp()">
+Verify OTP
+</button>
+
+<script>
+
+const API =
+'http://13.202.134.55:3000';
+
+async function sendOtp() {
+
+  const email =
+    document.getElementById('email').value;
+
+  const res =
+    await fetch(
+      `${API}/auth/send-otp`,
+      {
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          email
+        })
+      }
+    );
+
+  alert('OTP Sent');
+}
+
+async function verifyOtp() {
+
+  const email =
+    document.getElementById('email').value;
+
+  const otp =
+    document.getElementById('otp').value;
+
+  const res =
+    await fetch(
+      `${API}/auth/verify-otp`,
+      {
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          email,
+          otp
+        })
+      }
+    );
+
+  const data =
+    await res.json();
+
+  localStorage.setItem(
+    'token',
+    data.token
+  );
+
+  alert('Logged In');
+}
+
+</script>
+
+</body>
+</html>
